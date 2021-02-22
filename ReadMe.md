@@ -1,23 +1,28 @@
 ﻿# Oiski's To-Do App
 
 ## About The Project
+The project is a **Razor Page** Application and like all the `Oiski.School` namespace projects, this project is written as the solution to an assignments.
 
 ### Terms of Development
+The assignments specifies that the project is a _'To Do' Management Application_ that **must** include functionality for
+creating, deleting and editing '_To Do_' tasks.
+However, how those features are implemented and how exactly the application should look or behave is not specified;
+Therefore the following diagram was formed according to the specifications and ideas of mine.
 ![ToDo_H2_2021_Diagram_Part1](https://github.com/Mike-Mortensen-Portfolio/Oiski.School.ToDo_H2_2021/blob/Developer/Oiski.School.ToDo_H2_2021_Diagram_Part1.png)
 ![ToDo_H2_2021_Diagram_Part2](https://github.com/Mike-Mortensen-Portfolio/Oiski.School.ToDo_H2_2021/blob/Developer/Oiski.School.ToDo_H2_2021_Diagram_Part2.png)
 
 
 ## The program
 **Goal**
-> Missing description...
+> Build a _Razor Page Application_ that can manage and maintain a 'To Do' list.
 
 **Input**
-> Missing description...
+> Missing description...s
 
 **Output**
 > Missing description...
 
-See the [Wiki]() for more in depth information about the project.
+See the [Wiki](https://github.com/Mike-Mortensen-Portfolio/Oiski.School.ToDo_H2_2021/wiki) for more in depth information about the project.
 
 ## Versioning
 The Assignment specifies that versioning should be done according to the following template: [_Major_].[_Minor_].[_Path_].\
