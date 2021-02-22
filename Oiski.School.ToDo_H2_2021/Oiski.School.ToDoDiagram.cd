@@ -35,7 +35,7 @@
   <Class Name="Oiski.School.ToDo_H2_2021.Entities.ProjectTask">
     <Position X="6.5" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAQAAAAABAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAABAAAA=</HashCode>
       <FileName>Entities\ProjectTask.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />

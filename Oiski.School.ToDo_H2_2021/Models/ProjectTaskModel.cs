@@ -4,6 +4,9 @@ using System.Text;
 
 namespace Oiski.School.ToDo_H2_2021.Models
 {
+    /// <summary>
+    /// Defines an open model for a 'To Do' task <see langword="object"/>
+    /// </summary>
     public class ProjectTaskModel : IMyCompletableModel
     {
         public int ID { get; set; }
