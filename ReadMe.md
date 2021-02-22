@@ -35,6 +35,10 @@ The syntax for the structure of folders must be presented as: [DeveloperName]/[V
 >**Full Path:** _Oiski/v1/1.0.0-Interface_MainMenu__
 
 ### Change Log
+- **[v0.1.0](https://github.com/Mike-Mortensen-Portfolio/Oiski.School.ToDo_H2_2021/releases/tag/v0.1.0)**
+  - **Implemented Task Entities**
+    - Ability to save the state of a task
+    - Ability to build a task from a previous state
 
 ## [Oiski.School Namespace Collection](https://github.com/Mike-Mortensen-Portfolio) <-- Click Me
 1. [Oiski.School.Library_H1_2020](https://github.com/ZhakalenDk/Oiski.School.Library_H1_2020)
