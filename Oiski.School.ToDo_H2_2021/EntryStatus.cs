@@ -6,8 +6,8 @@ namespace Oiski.School.ToDo_H2_2021
 {
     public enum EntryStatus
     {
-        NotCompleted,
+        Open,
         InProgress,
-        Completed
+        Closed
     }
 }
