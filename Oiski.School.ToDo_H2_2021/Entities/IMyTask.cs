@@ -11,5 +11,11 @@ namespace Oiski.School.ToDo_H2_2021.Entities
     /// </summary>
     public interface IMyTask : IMyCompletableModel, IMyRepositoryEntity<int, string>
     {
+        new int ID { get; }
+
+        /// <summary>
+        /// The <i>key</i> that identifies the <see cref="ID"/> when calling <see cref="IMyRepositoryEntity{IDType, SaveType}.SaveEntity"/> and/or <see cref="IMyRepositoryEntity{IDType, SaveType}.BuildEntity(SaveType)"/>
+        /// </summary>
+        internal string IDKey { get; }
     }
 }

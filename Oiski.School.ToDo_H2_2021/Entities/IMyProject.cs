@@ -6,7 +6,14 @@ using System.Text;
 
 namespace Oiski.School.ToDo_H2_2021.Entities
 {
+    /// <summary>
+    /// Represents a project <see langword="object"/> that can store <see cref="IMyTask"/> <see langword="objects"/>
+    /// </summary>
     public interface IMyProject : IMyCompletableModel, IMyContainerEntity<IMyTask>, IMyRepositoryEntity<int, string>
     {
+        /// <summary>
+        /// The <i>key</i> that identifies the <see cref="ID"/> when calling <see cref="IMyRepositoryEntity{IDType, SaveType}.SaveEntity"/> and/or <see cref="IMyRepositoryEntity{IDType, SaveType}.BuildEntity(SaveType)"/>
+        /// </summary>
+        internal string IDKey { get; }
     }
 }
