@@ -3,6 +3,9 @@
 ## About The Project
 
 ### Terms of Development
+![ToDo_H2_2021_Diagram_Part1](https://github.com/Mike-Mortensen-Portfolio/Oiski.School.ToDo_H2_2021/blob/Developer/Oiski.School.ToDo_H2_2021_Diagram_Part1.png)
+![ToDo_H2_2021_Diagram_Part2](https://github.com/Mike-Mortensen-Portfolio/Oiski.School.ToDo_H2_2021/blob/Developer/Oiski.School.ToDo_H2_2021_Diagram_Part2.png)
+
 
 ## The program
 **Goal**
