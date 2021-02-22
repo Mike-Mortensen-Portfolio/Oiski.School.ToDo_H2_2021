@@ -11,13 +11,13 @@
   <Class Name="Oiski.School.ToDo_H2_2021.Models.ProjectModel">
     <Position X="3.5" Y="0.5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAEAAAgQAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAEAAAgwAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\ProjectModel.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Oiski.School.ToDo_H2_2021.Entities.Project">
-    <Position X="3.5" Y="3" Width="2.25" />
+    <Position X="3.5" Y="3.25" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAEEAAAgCAAAAAAAAAAAAgAAEAAQAAAABBAAAA=</HashCode>
       <FileName>Entities\Project.cs</FileName>
@@ -27,13 +27,13 @@
   <Class Name="Oiski.School.ToDo_H2_2021.Models.ProjectTaskModel">
     <Position X="6.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAEAAAgAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAEAAAggAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\ProjectTaskModel.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Oiski.School.ToDo_H2_2021.Entities.ProjectTask">
-    <Position X="6.5" Y="2.75" Width="1.5" />
+    <Position X="6.5" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAQAAAAABAAAA=</HashCode>
       <FileName>Entities\ProjectTask.cs</FileName>
@@ -41,37 +41,37 @@
     <Lollipop Position="0.2" />
   </Class>
   <Interface Name="Oiski.School.ToDo_H2_2021.Models.IMyCompletableModel">
-    <Position X="8.75" Y="0.5" Width="2" />
+    <Position X="12.25" Y="0.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAEAAAgAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAEAAAggAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\IMyCompletableModel.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Oiski.School.ToDo_H2_2021.Entities.IMyTask">
-    <Position X="8.75" Y="2.75" Width="2" />
+    <Position X="12.25" Y="3" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Entities\IMyTask.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Oiski.School.ToDo_H2_2021.Entities.IMyContainerEntity&lt;T&gt;">
-    <Position X="11.5" Y="0.5" Width="2" />
+    <Position X="15" Y="0.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Entities\IMyContainerEntity.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Oiski.School.ToDo_H2_2021.Entities.IMyProject">
-    <Position X="11.5" Y="2.5" Width="2" />
+    <Position X="15" Y="2.75" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Entities\IMyProject.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Oiski.School.ToDo_H2_2021.Models.IMyChangableCollectionModel&lt;T&gt;">
-    <Position X="14.25" Y="0.5" Width="2.75" />
+    <Position X="8.75" Y="0.5" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\IMyChangableCollectionModel.cs</FileName>
     </TypeIdentifier>
   </Interface>

@@ -7,6 +7,7 @@ namespace Oiski.School.ToDo_H2_2021.Models
 {
     public class ProjectModel : IMyChangableCollectionModel<IMyTask>, IMyCompletableModel
     {
+        public int ID { get; }
         public List<IMyTask> Collection { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }

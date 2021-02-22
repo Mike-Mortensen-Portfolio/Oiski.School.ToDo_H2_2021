@@ -6,6 +6,7 @@ namespace Oiski.School.ToDo_H2_2021.Models
 {
     public interface IMyCompletableModel
     {
+        int ID { get; }
         string Name { get; set; }
         string Description { get; set; }
         EntryStatus Status { get; set; }
