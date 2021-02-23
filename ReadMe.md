@@ -57,6 +57,8 @@ The syntax for the structure of folders must be presented as: [DeveloperName]/[V
 - **[v1.1.0](https://github.com/Mike-Mortensen-Portfolio/Oiski.School.ToDo_H2_2021/releases/tag/v1.1.0)**
   - Added Project Overview Page
   - Setting up base page layout
+- **[v1.2.0](https://github.com/Mike-Mortensen-Portfolio/Oiski.School.ToDo_H2_2021/releases/tag/v1.2.0)**
+  - Added Project Details Page
 
 ## [Oiski.School Namespace Collection](https://github.com/Mike-Mortensen-Portfolio) <-- Click Me
 1. [Oiski.School.Library_H1_2020](https://github.com/ZhakalenDk/Oiski.School.Library_H1_2020)
