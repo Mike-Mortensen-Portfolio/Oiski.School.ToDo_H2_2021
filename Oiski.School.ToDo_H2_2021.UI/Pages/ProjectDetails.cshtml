@@ -75,8 +75,8 @@
                     <i>@Html.DisplayFor(modelItem => item.Status)</i>
                 </td>
                 <td>
-                    <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                    <a asp-page="./EditTask" asp-route-projectID="@Model.Project.ID" asp-route-taskID="@item.ID">Edit</a> |
+                    <a asp-page="./DeleteTask" asp-route-projectID="@Model.Project.ID" asp-route-taskID="@item.ID">Delete</a>
                 </td>
             </tr>
         }
