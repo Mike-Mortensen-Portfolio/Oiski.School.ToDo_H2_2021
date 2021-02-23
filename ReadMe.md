@@ -54,6 +54,10 @@ The syntax for the structure of folders must be presented as: [DeveloperName]/[V
     - Ability to store and load projects
   - **Changes to `Project`**
     - Fixed ambiguous call to ID property between `IMyCompletableModel` and `IMyRepositoryEntity` In `IMyTask`
+- **[v0.4.0](https://github.com/Mike-Mortensen-Portfolio/Oiski.School.ToDo_H2_2021/releases/tag/v0.4.0)**
+  - **Implemented Factories**
+    - Added `TaskFactory` class
+    - Added `ProjectFactory` class
 
 ## [Oiski.School Namespace Collection](https://github.com/Mike-Mortensen-Portfolio) <-- Click Me
 1. [Oiski.School.Library_H1_2020](https://github.com/ZhakalenDk/Oiski.School.Library_H1_2020)
