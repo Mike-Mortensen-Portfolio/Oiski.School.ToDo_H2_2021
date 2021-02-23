@@ -1,0 +1,59 @@
+﻿@page "{projectID}/{taskID}"
+@model Oiski.School.ToDo_H2_2021.UI.Pages.EditTaskModel
+@{
+    ViewData[ "Title" ] = $"Edit - {Model.Task.Name}";
+}
+
+<h1 class="text-center">@Model.Task.Name</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <form method="post" asp-route-id="@Model.Task.ID">
+            <input asp-for="Project.ID" type="hidden" />
+            <input asp-for="Project.Name" type="hidden" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <span class="text-danger" asp-validation-for="Task.Name"></span>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>ID: </p>
+                </div>
+                <div class="col-md-6">
+                    <input readonly="readonly" type="text" asp-for="Task.ID" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>Name: </p>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" asp-for="Task.Name" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>Description: </p>
+                </div>
+                <div class="col-md-6">
+                    <textarea rows="10" cols="50" asp-for="Task.Description"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>Status: </p>
+                </div>
+                <div class="col-md-6">
+                    @Html.DropDownListFor(model => model.Task.Status, new SelectList (Enum.GetValues (typeof (EntryStatus)), "Select Status"))
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+
+                </div>
+                <div class="col-md-6">
+                    <input class="btn" style="background-color:green; color:white" type="submit" value="Save" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

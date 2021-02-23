@@ -1,0 +1,49 @@
+﻿@page
+@model Oiski.School.ToDo_H2_2021.UI.Pages.ProjectsModel
+@{
+    ViewData[ "Title" ] = "Projects";
+}
+
+<h1 class="text-center">Projects</h1>
+<p>
+    <a asp-page="CreateProject">New Project</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
+                Settings
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ( var item in Model.Projects )
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    <i>@Html.DisplayFor(modelItem => item.Description)</i>
+                </td>
+                <td>
+                    <i>@Html.DisplayFor(modelItem => item.Status)</i>
+                </td>
+                <td>
+                    <a asp-page="./EditProject" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-page="./ProjectDetails" asp-route-id="@item.ID">Details</a> |
+                    <a asp-page="./DeleteProject" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
