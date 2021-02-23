@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Oiski.Common", "..\Oiski.Co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Oiski.School.ToDo_H2_2021", "Oiski.School.ToDo_H2_2021\Oiski.School.ToDo_H2_2021.csproj", "{E07C3C12-E083-4747-9216-15B017F85FEB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject", "TestProject\TestProject.csproj", "{C0330863-10E6-4B5F-AA10-2CDC3AC7C9BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject", "TestProject\TestProject.csproj", "{C0330863-10E6-4B5F-AA10-2CDC3AC7C9BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
