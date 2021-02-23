@@ -156,12 +156,13 @@ namespace Oiski.School.ToDo_H2_2021.Entities
         {
             List<IMyTask> tasks = new List<IMyTask> ();
 
-            foreach ( string data in file.ReadLines () )
+            string[] lines = file.ReadLines ();
+            for ( int i = 1; i < lines.Length - 1; i++ )
             {
-                if ( !string.IsNullOrEmpty (data) )
+                if ( !string.IsNullOrEmpty (lines[ i ]) )
                 {
                     IMyTask task = ProjectOverview.TaskFactory.CreateDefaultTask ();
-                    task.BuildEntity (data);
+                    task.BuildEntity (lines[ i ]);
 
                     tasks.Add (task);
                 }
