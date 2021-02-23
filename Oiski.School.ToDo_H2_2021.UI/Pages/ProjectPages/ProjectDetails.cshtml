@@ -72,7 +72,22 @@
                     <i>@Html.DisplayFor(modelItem => item.Description)</i>
                 </td>
                 <td>
-                    <i>@Html.DisplayFor(modelItem => item.Status)</i>
+                    @{
+                        switch ( item.Status )
+                        {
+                            case EntryStatus.Open:
+                                <i style="color:green">@Html.DisplayFor(modelItem => item.Status)</i>
+                                break;
+                            case EntryStatus.InProgress:
+                                <i style="color:orange">@Html.DisplayFor(modelItem => item.Status)</i>
+                                break;
+                            case EntryStatus.Closed:
+                                <i style="color:red">@Html.DisplayFor(modelItem => item.Status)</i>
+                                break;
+                            default:
+                                break;
+                        }
+                    }
                 </td>
                 <td>
                     <a asp-page="/TaskPages/EditTask" asp-route-projectID="@Model.Project.ID" asp-route-taskID="@item.ID">Edit</a> |

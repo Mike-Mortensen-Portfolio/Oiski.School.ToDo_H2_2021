@@ -36,7 +36,37 @@
                     <i>@Html.DisplayFor(modelItem => item.Description)</i>
                 </td>
                 <td>
-                    <i>@Html.DisplayFor(modelItem => item.Status)</i>
+                    @{
+                        bool completed = true;
+                        foreach ( var task in item.GetEnumerable () )
+                        {
+                            if ( task.Status == EntryStatus.Open || task.Status == EntryStatus.InProgress )
+                            {
+                                completed = false;
+                            }
+                        }
+
+                        if ( completed )
+                        {
+                            item.Status = EntryStatus.Closed;
+                        }
+
+                        switch ( item.Status )
+                        {
+                            case EntryStatus.Open:
+                                <i style="color:green">@Html.DisplayFor(modelItem => item.Status)</i>
+                                break;
+                            case EntryStatus.InProgress:
+                                <i style="color:orange">@Html.DisplayFor(modelItem => item.Status)</i>
+                                break;
+                            case EntryStatus.Closed:
+                                <i style="color:red">@Html.DisplayFor(modelItem => item.Status)</i>
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+
                 </td>
                 <td>
                     <a asp-page="./EditProject" asp-route-id="@item.ID">Edit</a> |
