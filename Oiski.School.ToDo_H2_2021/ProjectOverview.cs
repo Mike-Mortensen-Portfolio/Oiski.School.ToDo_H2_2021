@@ -30,7 +30,8 @@ namespace Oiski.School.ToDo_H2_2021
                 projectFolder = new DirectoryInfo (folderPath);
             }
 
-            projects = GetEnumerable ().ToList ();
+            projectFactory = new ProjectFactory ();
+            taskFactory = new TaskFactory ();
         }
 
         /// <summary>
@@ -53,6 +54,7 @@ namespace Oiski.School.ToDo_H2_2021
                 if ( source == null )
                 {
                     source = new ProjectOverview ();
+                    source.projects = source.GetEnumerable ().ToList ();
                 }
 
                 return source;
@@ -62,7 +64,7 @@ namespace Oiski.School.ToDo_H2_2021
         /// <summary>
         /// The collection of <see cref="IMyProject"/> <see langword="objects"/>
         /// </summary>
-        private readonly List<IMyProject> projects;
+        private List<IMyProject> projects;
         /// <summary>
         /// A read only collection of <see cref="IMyProject"/> <see langword="objects"/>
         /// </summary>
@@ -74,12 +76,36 @@ namespace Oiski.School.ToDo_H2_2021
             }
         }
 
+        private readonly ProjectFactory projectFactory;
+        /// <summary>
+        /// Use this to create new <see cref="IMyProject"/> <see langword="objects"/>
+        /// </summary>
+        public static ProjectFactory ProjectFactory
+        {
+            get
+            {
+                return Source.projectFactory;
+            }
+        }
+
+        private readonly TaskFactory taskFactory;
+        /// <summary>
+        /// Use this to create new <see cref="IMyTask"/> <see langword="objects"/>
+        /// </summary>
+        public static TaskFactory TaskFactory
+        {
+            get
+            {
+                return Source.taskFactory;
+            }
+        }
+
         public bool DeleteData<IDType> ( IMyRepositoryEntity<IDType, string> _entity )
         {
             IMyProject project = GetDataByIdentifier (_entity.ID);
             if ( project != null )
             {
-                FileInfo file = projectFolder.GetFiles ($"{project.ID}").FirstOrDefault ();
+                FileInfo file = projectFolder.GetFiles ($"*{project.ID}*").FirstOrDefault ();
 
                 if ( file != null )
                 {
@@ -94,8 +120,8 @@ namespace Oiski.School.ToDo_H2_2021
 
         public IMyProject GetDataByIdentifier<IDType> ( IDType _id )
         {
-            IMyProject project = new Project (string.Empty);
-            FileInfo fileInfo = projectFolder.GetFiles (Common.Generics.Converter.CastGeneric<IDType, int> (_id).ToString ()).FirstOrDefault ();
+            IMyProject project = ProjectFactory.CreateDefaultProject ();
+            FileInfo fileInfo = projectFolder.GetFiles ($"*{Common.Generics.Converter.CastGeneric<IDType, int> (_id)}*").FirstOrDefault ();
 
             if ( fileInfo != null )
             {
@@ -120,8 +146,9 @@ namespace Oiski.School.ToDo_H2_2021
                 FileHandler file = new FileHandler (data.FullName);
                 if ( !string.IsNullOrEmpty (file.ReadLines ()[ 0 ]) )
                 {
-                    IMyProject project = new Project (string.Empty);
+                    IMyProject project = projectFactory.CreateDefaultProject ();
                     project.BuildEntity (file.ReadAll ());
+                    projects.Add (project);
                 }
             }
 
@@ -133,7 +160,7 @@ namespace Oiski.School.ToDo_H2_2021
             if ( GetDataByIdentifier (_data.ID) == null )
             {
                 FileHandler file = new FileHandler ($"{folderPath}\\{_data.ID}.csv");
-                file.Write (_data.SaveEntity ());
+                file.WriteLine (_data.SaveEntity ());
 
                 projects.Add (GetDataByIdentifier (_data.ID));
 
@@ -150,6 +177,8 @@ namespace Oiski.School.ToDo_H2_2021
             {
                 FileHandler file = new FileHandler ($"{folderPath}\\{project.ID}.csv");
                 file.Write (_data.SaveEntity ());
+
+                projects[ projects.IndexOf (projects.Find (item => item.ID == project.ID)) ] = project;
 
                 return true;
             }

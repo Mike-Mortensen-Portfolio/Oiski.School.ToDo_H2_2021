@@ -1,9 +1,11 @@
 ﻿using Oiski.Common.Files;
+using Oiski.Common.Generics;
 using Oiski.Common.Repository;
 using Oiski.School.ToDo_H2_2021.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Text;
 
@@ -14,17 +16,28 @@ namespace Oiski.School.ToDo_H2_2021.Entities
     /// </summary>
     internal class Project : ProjectModel, IMyProject
     {
+        internal Project ()
+        {
+            ID = projectCount++;
+            Name = string.Empty;
+            Description = string.Empty;
+            Status = EntryStatus.Open;
+
+            Collection = new List<IMyTask> ();
+        }
+
+        public Project ( int _id ) : this ()
+        {
+            ID = _id;
+        }
+
         /// <summary>
         /// Initialize a new instance of type <see cref="Project"/> where the name is set
         /// </summary>
         /// <param name="_name"></param>
-        public Project ( string _name )
+        public Project ( string _name ) : this ()
         {
-            ID = projectCount++;
             Name = _name;
-            Description = string.Empty;
-            Status = EntryStatus.Open;
-            Collection = new List<IMyTask> ();
             filePath = $"{Path.GetDirectoryName (Assembly.GetExecutingAssembly ().Location)}\\Projects\\{ID}.csv";
             file = new FileHandler (filePath);
         }
@@ -36,17 +49,30 @@ namespace Oiski.School.ToDo_H2_2021.Entities
         /// <summary>
         /// The <see cref="FileHandler"/> that manages the <see cref="File"/> that contains info about the <see cref="Project"/> and the collection of <see cref="IMyTask"/> <see langword="objects"/> currently stored
         /// </summary>
-        private readonly FileHandler file;
+        private FileHandler file;
         /// <summary>
         /// The <strong>full path</strong> to the <see cref="File"/> that contains info about the <see cref="Project"/> and the collection of <see cref="IMyTask"/> <see langword="objects"/> currently stored
         /// </summary>
-        private readonly string filePath;
+        private string filePath;
 
         public IReadOnlyList<IMyTask> Entries
         {
             get
             {
                 return Collection;
+            }
+        }
+
+        public new int ID
+        {
+            get
+            {
+                return base.ID;
+            }
+
+            private set
+            {
+                base.ID = value;
             }
         }
 
@@ -70,22 +96,28 @@ namespace Oiski.School.ToDo_H2_2021.Entities
 
         public void BuildEntity ( string _data )
         {
-            string[] data = _data.Split ("\n");
+            string[] data = _data.Split ($"{Environment.NewLine}");
 
             string[] projectData = data[ 0 ].Split (",");
 
-            if ( projectData.Length != 4 && int.TryParse (projectData[ 0 ].Replace (( ( IMyProject ) this ).IDKey, string.Empty), out int _id) && int.TryParse (data[ 3 ], out int _status) )
+            if ( projectData.Length == 4 && int.TryParse (projectData[ 0 ].Replace (( ( IMyProject ) this ).IDKey, string.Empty), out int _id) && int.TryParse (projectData[ 3 ], out int _status) )
             {
                 ID = _id;
-                Name = data[ 1 ];
-                Description = data[ 2 ];
+                Name = projectData[ 1 ];
+                Description = projectData[ 2 ];
                 Status = ( EntryStatus ) _status;
 
-                for ( int i = 5; i < data.Length; i++ )
+                filePath = $"{Path.GetDirectoryName (Assembly.GetExecutingAssembly ().Location)}\\Projects\\{ID}.csv";
+                file = new FileHandler (filePath);
+
+                for ( int i = 1; i < data.Length - 1; i++ )
                 {
-                    IMyTask task = new ProjectTask (string.Empty);
-                    task.BuildEntity (data[ i ]);
-                    Collection.Add (task);
+                    IMyTask task = ProjectOverview.TaskFactory.CreateDefaultTask ();
+                    if ( !string.IsNullOrEmpty (data[ i ]) )
+                    {
+                        task.BuildEntity (data[ i ]);
+                        Collection.Add (task);
+                    }
                 }
 
                 return;
@@ -99,6 +131,7 @@ namespace Oiski.School.ToDo_H2_2021.Entities
             if ( GetDataByIdentifier (_entity.ID) != null )
             {
                 file.DeleteLine (file.GetLineNumber (file.FindLine (_entity.ID.ToString ())));
+                Collection.Remove (Collection.Find (item => item.ID == Common.Generics.Converter.CastGeneric<IDType, int> (_entity.ID)));
                 return true;
             }
 
@@ -107,7 +140,7 @@ namespace Oiski.School.ToDo_H2_2021.Entities
 
         public IMyTask GetDataByIdentifier<IDType> ( IDType _id )
         {
-            IMyTask task = new ProjectTask (string.Empty);
+            IMyTask task = ProjectOverview.TaskFactory.CreateDefaultTask ();
             string data = file.FindLine ($"{task.IDKey}{Common.Generics.Converter.CastGeneric<IDType, int> (_id)}");
 
             if ( data != null )
@@ -127,7 +160,7 @@ namespace Oiski.School.ToDo_H2_2021.Entities
             {
                 if ( !string.IsNullOrEmpty (data) )
                 {
-                    IMyTask task = new ProjectTask (string.Empty);
+                    IMyTask task = ProjectOverview.TaskFactory.CreateDefaultTask ();
                     task.BuildEntity (data);
 
                     tasks.Add (task);
@@ -142,6 +175,8 @@ namespace Oiski.School.ToDo_H2_2021.Entities
             if ( GetDataByIdentifier (_data.ID) == null )
             {
                 file.WriteLine (_data.SaveEntity (), true);
+                IMyTask task = GetDataByIdentifier (_data.ID);
+                Collection.Add (task);
 
                 return true;
             }
@@ -153,7 +188,7 @@ namespace Oiski.School.ToDo_H2_2021.Entities
         {
             file.InsertLine ($"{( ( IMyProject ) this ).IDKey}{ID},{Name},{Description},{( int ) Status}", 0);
 
-            int index = 0;
+            int index = 1;
 
             foreach ( IMyTask task in Entries )
             {
@@ -169,6 +204,10 @@ namespace Oiski.School.ToDo_H2_2021.Entities
             if ( !string.IsNullOrWhiteSpace (file.FindLine ($"{( ( IMyTask ) _data ).IDKey}{_data.ID}")) )
             {
                 file.UpdateLine (_data.SaveEntity (), file.GetLineNumber (file.FindLine ($"TaskID{Common.Generics.Converter.CastGeneric<IDType, int> (_data.ID)}")));
+
+                IMyTask task = GetDataByIdentifier (_data.ID);
+
+                Collection[ Collection.IndexOf (Collection.Find (item => item.ID == task.ID)) ] = task;
                 return true;
             }
 
