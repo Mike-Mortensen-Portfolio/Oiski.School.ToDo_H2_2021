@@ -23,6 +23,10 @@ namespace Oiski.School.ToDo_H2_2021.Entities
             Description = string.Empty;
             Status = EntryStatus.Open;
         }
+        public ProjectTask ( int _id ) : this (string.Empty)
+        {
+            ID = _id;
+        }
 
         /// <summary>
         /// Represents the amount of <see cref="ProjectTask"/> <see langword="objects"/> currently stored (<i>Used to assign ID's</i>)
@@ -45,6 +49,18 @@ namespace Oiski.School.ToDo_H2_2021.Entities
             }
         }
 
+        public new int ID
+        {
+            get
+            {
+                return base.ID;
+            }
+
+            private set
+            {
+                base.ID = value;
+            }
+        }
         string IMyTask.IDKey { get; } = "TaskID";
 
         /// <summary>
@@ -55,7 +71,7 @@ namespace Oiski.School.ToDo_H2_2021.Entities
         {
             string[] data = _data.Split (",");
 
-            if ( data.Length != 4 && int.TryParse (data[ 0 ].Replace (( ( IMyTask ) this ).IDKey, string.Empty), out int _id) && int.TryParse (data[ 3 ], out int _status) )
+            if ( data.Length == 4 && int.TryParse (data[ 0 ].Replace (( ( IMyTask ) this ).IDKey, string.Empty), out int _id) && int.TryParse (data[ 3 ], out int _status) )
             {
                 ID = _id;
                 Name = data[ 1 ];
