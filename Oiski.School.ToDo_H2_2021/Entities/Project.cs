@@ -25,7 +25,7 @@ namespace Oiski.School.ToDo_H2_2021.Entities
             Description = string.Empty;
             Status = EntryStatus.Open;
             Collection = new List<IMyTask> ();
-            filePath = $"{Path.GetDirectoryName (Assembly.GetExecutingAssembly ().Location)}\\Projects\\{Name}_{ID}.csv";
+            filePath = $"{Path.GetDirectoryName (Assembly.GetExecutingAssembly ().Location)}\\Projects\\{ID}.csv";
             file = new FileHandler (filePath);
         }
 
@@ -47,6 +47,22 @@ namespace Oiski.School.ToDo_H2_2021.Entities
             get
             {
                 return Collection;
+            }
+        }
+
+        int IMyCompletableModel.ID
+        {
+            get
+            {
+                return ID;
+            }
+        }
+
+        int IMyRepositoryEntity<int, string>.ID
+        {
+            get
+            {
+                return ID;
             }
         }
 

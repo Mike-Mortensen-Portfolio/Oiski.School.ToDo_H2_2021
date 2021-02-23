@@ -3,13 +3,13 @@
   <Class Name="Oiski.School.ToDo_H2_2021.ProjectOverview">
     <Position X="0.5" Y="0.5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAEEgAAACIAAAAAAAAAAAgAAEAAAAABABAAAAA=</HashCode>
+      <HashCode>AAAAAAAEEgAAACIAIAAAACAAAAgAAEAAAAABABAAAAA=</HashCode>
       <FileName>ProjectOverview.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Oiski.School.ToDo_H2_2021.Models.ProjectModel">
-    <Position X="3.5" Y="0.5" Width="2.25" />
+    <Position X="3.5" Y="0.5" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAEAAAgwAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\ProjectModel.cs</FileName>
@@ -17,15 +17,15 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Oiski.School.ToDo_H2_2021.Entities.Project">
-    <Position X="3.5" Y="3.25" Width="2.25" />
+    <Position X="3.5" Y="3.25" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAIAEEAAAACAAAAAAAAAAAAgAAEAARAAAgBBAAAA=</HashCode>
+      <HashCode>AAAAAIAEEAAAACACAAAAAAAAEAgAAEAARAAAgBBAAAA=</HashCode>
       <FileName>Entities\Project.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Oiski.School.ToDo_H2_2021.Models.ProjectTaskModel">
-    <Position X="6.5" Y="0.5" Width="2.75" />
+    <Position X="7" Y="0.5" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAEAAAggAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\ProjectTaskModel.cs</FileName>
@@ -33,52 +33,52 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Oiski.School.ToDo_H2_2021.Entities.ProjectTask">
-    <Position X="6.5" Y="3" Width="2.75" />
+    <Position X="7" Y="3" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAACAAAAAAAAEAAAAAAAQAAAAABAQAA=</HashCode>
+      <HashCode>AAAAAAAAAAAQAAACAAAAAAAAEAAAAAAAQAAAAABAQAA=</HashCode>
       <FileName>Entities\ProjectTask.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Interface Name="Oiski.School.ToDo_H2_2021.Models.IMyCompletableModel">
-    <Position X="13.5" Y="0.5" Width="2" />
+    <Position X="14" Y="0.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAEAAAggAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\IMyCompletableModel.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Oiski.School.ToDo_H2_2021.Entities.IMyTask">
-    <Position X="13.5" Y="3" Width="2" />
+    <Position X="14" Y="3" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Entities\IMyTask.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Oiski.School.ToDo_H2_2021.Entities.IMyContainerEntity&lt;T&gt;">
-    <Position X="16.25" Y="0.5" Width="2" />
+    <Position X="16.75" Y="0.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Entities\IMyContainerEntity.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Oiski.School.ToDo_H2_2021.Entities.IMyProject">
-    <Position X="16.25" Y="2.75" Width="2" />
+    <Position X="16.75" Y="2.75" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Entities\IMyProject.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Oiski.School.ToDo_H2_2021.Models.IMyChangableCollectionModel&lt;T&gt;">
-    <Position X="10" Y="0.5" Width="2.75" />
+    <Position X="10.5" Y="0.5" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\IMyChangableCollectionModel.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Enum Name="Oiski.School.ToDo_H2_2021.EntryStatus">
-    <Position X="19" Y="0.5" Width="1.5" />
+    <Position X="19.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAABAAAAAAIAAAAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAABCAAAA=</HashCode>
       <FileName>EntryStatus.cs</FileName>
     </TypeIdentifier>
   </Enum>
