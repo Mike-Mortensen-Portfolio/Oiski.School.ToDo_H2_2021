@@ -24,7 +24,7 @@ namespace Oiski.School.ToDo_H2_2021.UI.Pages
 
                 ProjectOverview.Source.InsertData (newProject);
 
-                return Redirect ($"/ProjectDetails/{newProject.ID}");
+                return Redirect ($"/ProjectPages/ProjectDetails/{newProject.ID}");
             }
 
             Project = project;
