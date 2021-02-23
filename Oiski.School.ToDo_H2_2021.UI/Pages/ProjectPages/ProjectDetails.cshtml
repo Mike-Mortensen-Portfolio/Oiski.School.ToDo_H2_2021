@@ -42,7 +42,7 @@
 
 <h2 class="text-center">Tasks</h2>
 <p>
-    <a asp-page="CreateTask" asp-route-id="@Model.Project.ID">New Task</a>
+    <a asp-page="/TaskPages/CreateTask" asp-route-id="@Model.Project.ID">New Task</a>
 </p>
 <table class="table">
     <thead>
@@ -75,8 +75,8 @@
                     <i>@Html.DisplayFor(modelItem => item.Status)</i>
                 </td>
                 <td>
-                    <a asp-page="./EditTask" asp-route-projectID="@Model.Project.ID" asp-route-taskID="@item.ID">Edit</a> |
-                    <a asp-page="./DeleteTask" asp-route-projectID="@Model.Project.ID" asp-route-taskID="@item.ID">Delete</a>
+                    <a asp-page="/TaskPages/EditTask" asp-route-projectID="@Model.Project.ID" asp-route-taskID="@item.ID">Edit</a> |
+                    <a asp-page="/TaskPages/DeleteTask" asp-route-projectID="@Model.Project.ID" asp-route-taskID="@item.ID">Delete</a>
                 </td>
             </tr>
         }

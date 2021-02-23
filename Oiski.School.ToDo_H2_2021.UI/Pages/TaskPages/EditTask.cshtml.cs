@@ -42,7 +42,7 @@ namespace Oiski.School.ToDo_H2_2021.UI.Pages
 
                 Project.UpdateData (updatedTask);
 
-                return Redirect ($"/ProjectDetails/{Project.ID}");
+                return Redirect ($"/ProjectPages/ProjectDetails/{Project.ID}");
             }
 
             Task = task;

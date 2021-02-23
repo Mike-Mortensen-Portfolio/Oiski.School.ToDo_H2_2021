@@ -9,10 +9,10 @@ using Oiski.School.ToDo_H2_2021.Models;
 
 namespace Oiski.School.ToDo_H2_2021.UI.Pages
 {
-    public class DeleteProjectModel : PageModel
+    public class EditProjectModel : PageModel
     {
+        [BindProperty]
         public ProjectModel Project { get; private set; }
-        public string Name { get; private set; }
 
         public IActionResult OnGet ( int? id )
         {
@@ -21,10 +21,7 @@ namespace Oiski.School.ToDo_H2_2021.UI.Pages
                 return NotFound ();
             }
 
-            Project = new ProjectModel ();
-            IMyProject project = ProjectOverview.Source.GetDataByIdentifier (id.Value);
-            Name = project.Name;
-            Project.ID = project.ID;
+            Project = ProjectOverview.Source.GetDataByIdentifier (id.Value) as ProjectModel;
 
             if ( Project == null )
             {
@@ -36,18 +33,19 @@ namespace Oiski.School.ToDo_H2_2021.UI.Pages
 
         public IActionResult OnPost ( ProjectModel project )
         {
-            IMyProject projectToDelete = ProjectOverview.Source.GetDataByIdentifier (project.ID);
-
-            if ( project.Name == projectToDelete.Name )
+            if ( ModelState.IsValid )
             {
-                ProjectOverview.Source.DeleteData (projectToDelete);
-                return Redirect ($"/Projects");
+                IMyProject Project = ProjectOverview.Source.GetDataByIdentifier (project.ID);
+                Project.Name = project.Name;
+                Project.Description = project.Description;
+                Project.Status = project.Status;
+
+                ProjectOverview.Source.UpdateData (Project);
+
+                return Redirect ($"/ProjectPages/ProjectDetails/{Project.ID}");
             }
 
-            
-            Name = projectToDelete.Name;
-            project.Name = null;
-            Project = project;
+            Project = ProjectOverview.Source.GetDataByIdentifier (project.ID) as ProjectModel;
 
             return Page ();
         }

@@ -40,8 +40,7 @@ namespace Oiski.School.ToDo_H2_2021.UI.Pages
 
                 ProjectOverview.Source.GetDataByIdentifier (project.ID).InsertData (newTask);
 
-                return Redirect ($"/Projects");
-                //return Redirect ($"/TaskDetails/{newTask.ID}");
+                return Redirect ($"/ProjectPages/ProjectDetails/{project.ID}");
             }
 
             Task = task;
