@@ -55,19 +55,26 @@ The syntax for the structure of folders must be presented as: [DeveloperName]/[V
   - **Changes to `Project`**
     - Fixed ambiguous call to ID property between `IMyCompletableModel` and `IMyRepositoryEntity` In `IMyTask`
 - **[v1.1.0](https://github.com/Mike-Mortensen-Portfolio/Oiski.School.ToDo_H2_2021/releases/tag/v1.1.0)**
-  - Added Project Overview Page
+  - Added Project Overview page
   - Setting up base page layout
 - **[v1.2.0](https://github.com/Mike-Mortensen-Portfolio/Oiski.School.ToDo_H2_2021/releases/tag/v1.2.0)**
-  - Added `ProjectDetails` Page
+  - Added `ProjectDetails` page
 - **[v1.3.0](https://github.com/Mike-Mortensen-Portfolio/Oiski.School.ToDo_H2_2021/releases/tag/v1.3.0)**
-  - **Implemented `EditProject` Page**
+  - **Implemented `EditProject` page**
     - Changed Project property in `ProjectDetails` Page Model to be a `ProjectModel` instead of `IMyPrjoect`
   - **Changes to `ProjectModel` and `ProjectTaskModel`**
     - Added validation attributes to Name and Description
 - **[v1.4.0](https://github.com/Mike-Mortensen-Portfolio/Oiski.School.ToDo_H2_2021/releases/tag/v1.4.0)**
-  - Added `DeleteProject` Page
+  - Added `DeleteProject` page
 - **[v1.5.0](https://github.com/Mike-Mortensen-Portfolio/Oiski.School.ToDo_H2_2021/releases/tag/v1.5.0)**
   - Added `CreateProject` page
+- **[v1.6.0](https://github.com/Mike-Mortensen-Portfolio/Oiski.School.ToDo_H2_2021/releases/tag/v1.6.0)**
+  - **Changes to Pages**
+    - Added `CreateTask` page
+    - Added `EditTask` page
+    - Added `DeleteTask` page
+  - **Additonal Changes**
+    - Reorganized folder structure for pages
 
 ## [Oiski.School Namespace Collection](https://github.com/Mike-Mortensen-Portfolio) <-- Click Me
 1. [Oiski.School.Library_H1_2020](https://github.com/ZhakalenDk/Oiski.School.Library_H1_2020)
