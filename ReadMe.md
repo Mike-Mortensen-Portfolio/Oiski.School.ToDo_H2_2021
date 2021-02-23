@@ -64,6 +64,8 @@ The syntax for the structure of folders must be presented as: [DeveloperName]/[V
     - Changed Project property in `ProjectDetails` Page Model to be a `ProjectModel` instead of `IMyPrjoect`
   - **Changes to `ProjectModel` and `ProjectTaskModel`**
     - Added validation attributes to Name and Description
+- **[v1.4.0](https://github.com/Mike-Mortensen-Portfolio/Oiski.School.ToDo_H2_2021/releases/tag/v1.4.0)**
+  - Added `DeleteProject` Page
 
 ## [Oiski.School Namespace Collection](https://github.com/Mike-Mortensen-Portfolio) <-- Click Me
 1. [Oiski.School.Library_H1_2020](https://github.com/ZhakalenDk/Oiski.School.Library_H1_2020)
