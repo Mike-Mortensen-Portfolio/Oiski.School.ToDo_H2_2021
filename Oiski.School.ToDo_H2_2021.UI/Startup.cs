@@ -26,7 +26,6 @@ namespace Oiski.School.ToDo_H2_2021.UI
         public void ConfigureServices ( IServiceCollection services )
         {
             services.AddRazorPages ();
-            services.AddSingleton<IMyRepository<IMyProject, string>, ProjectOverview> ();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
