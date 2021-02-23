@@ -43,14 +43,17 @@ The syntax for the structure of folders must be presented as: [DeveloperName]/[V
   - Implemented `Project`
     - Ability to save project state
     - Ability to load a previous state of a project
-
   - **Changes to `ProjectTask`**
     - Added IDKey to identify the ID value in a file
-    - Fixed ambiguous call to ID property between IMyCompletableModel and IMyRepositoryEntity In IMyTask
-
-  - Changes to `EntryStatus`
+    - Fixed ambiguous call to ID property between `IMyCompletableModel` and `IMyRepositoryEntity` In `IMyTask`
+  - **Changes to `EntryStatus`**
     - Changes NotCompleted to Open
     - Changed Completed to Closed
+- **[v0.3.0](https://github.com/Mike-Mortensen-Portfolio/Oiski.School.ToDo_H2_2021/releases/tag/v0.3.0)**
+  - **Implemented `ProjctOverview`**
+    - Ability to store and load projects
+  - **Changes to `Project`**
+    - Fixed ambiguous call to ID property between `IMyCompletableModel` and `IMyRepositoryEntity` In `IMyTask`
 
 ## [Oiski.School Namespace Collection](https://github.com/Mike-Mortensen-Portfolio) <-- Click Me
 1. [Oiski.School.Library_H1_2020](https://github.com/ZhakalenDk/Oiski.School.Library_H1_2020)
