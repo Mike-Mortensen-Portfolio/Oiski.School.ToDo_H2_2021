@@ -1,0 +1,32 @@
+﻿@page "{id}"
+@model Oiski.School.ToDo_H2_2021.UI.Pages.DeleteProjectModel
+@{
+    ViewData[ "Title" ] = $"Delete - {Model.Name}";
+}
+
+<h1 class="text-center" style="color:red">You're about to delete: <i>@Model.Name</i></h1>
+<p class="text-center">Type <u>@Model.Name</u> in the textbox below to verify that you want to delete the project</p>
+
+<form method="post" asp-route-id="@Model.Project.ID">
+    <input asp-for="@Model.Project.ID" type="hidden" />
+    <div class="row">
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-2">
+            <p>Project Name: </p>
+        </div>
+        <div class="col-md-6">
+            <input asp-for="@Model.Project.Name" required type="text" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5">
+
+        </div>
+        <div class="col-md-7">
+            <input class="btn-danger btn-lg" type="submit" value="Delete Project" />
+        </div>
+    </div>
+</form>
+
