@@ -91,6 +91,9 @@ The syntax for the structure of folders must be presented as: [DeveloperName]/[V
 - **[v1.6.3 - Revision 3](https://github.com/Mike-Mortensen-Portfolio/Oiski.School.ToDo_H2_2021/releases/tag/v1.6.3)**
   - Fixed spelling mistake in `DeleteTask`
   - Added a 'Delete' button to the `ProjectDetailsPage`
+- **[v1.6.4 - Hotfix 1](https://github.com/Mike-Mortensen-Portfolio/Oiski.School.ToDo_H2_2021/releases/tag/v1.6.4)**
+  - Corrected a mistake in the `ReadMe` file
+  - Fixed description text exceeding the boundary
 
 ## [Oiski.School Namespace Collection](https://github.com/Mike-Mortensen-Portfolio) <-- Click Me
 1. [Oiski.School.Library_H1_2020](https://github.com/ZhakalenDk/Oiski.School.Library_H1_2020)
