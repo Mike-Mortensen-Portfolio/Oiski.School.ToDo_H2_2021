@@ -7,6 +7,7 @@
 
 <h1 class="text-center">@Model.Project.Name</h1>
 
+@* ID Display - Read-only *@
 <div class="row">
     <div class="col-md-2">
         <p>ID: </p>
@@ -15,6 +16,8 @@
         <input readonly="readonly" type="text" asp-for="Project.ID" />
     </div>
 </div>
+
+@* Name Display - Read-only *@
 <div class="row">
     <div class="col-md-2">
         <p>Name: </p>
@@ -23,6 +26,8 @@
         <input readonly="readonly" type="text" asp-for="Project.Name" />
     </div>
 </div>
+
+@* Description Display - Read-only *@
 <div class="row">
     <div class="col-md-2">
         <p>Description: </p>
@@ -31,6 +36,8 @@
         <textarea rows="10" cols="50" readonly="readonly" asp-for="Project.Description"></textarea>
     </div>
 </div>
+
+@* Status Display - Read-only *@
 <div class="row">
     <div class="col-md-2">
         <p>Status: </p>
@@ -40,10 +47,23 @@
     </div>
 </div>
 
+@* Edit Button Display *@
+<div class="row">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-10">
+        <a class="btn btn-success" asp-page="./EditProject" asp-route-id="@Model.Project.ID">Edit</a>
+    </div>
+</div>
+
 <h2 class="text-center">Tasks</h2>
+
+@* Create New Task Button Display *@
 <p>
     <a asp-page="/TaskPages/CreateTask" asp-route-id="@Model.Project.ID">New Task</a>
 </p>
+
+@* Task Display *@
 <table class="table">
     <thead>
         <tr>
@@ -72,6 +92,7 @@
                     <i>@Html.DisplayFor(modelItem => item.Description)</i>
                 </td>
                 <td>
+                    @* Coloring Status values *@
                     @{
                         switch ( item.Status )
                         {

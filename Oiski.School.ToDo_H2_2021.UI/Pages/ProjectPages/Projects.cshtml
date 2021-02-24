@@ -5,6 +5,7 @@
 }
 
 <h1 class="text-center">Projects</h1>
+@* Create New Project Button *@
 <p>
     <a asp-page="CreateProject">New Project</a>
 </p>
@@ -36,7 +37,9 @@
                     <i>@Html.DisplayFor(modelItem => item.Description)</i>
                 </td>
                 <td>
+                    @* Configurating the project instance *@
                     @{
+                        //  Closing the project if all its tasks are closed
                         bool completed = true;
                         foreach ( var task in item.GetEnumerable () )
                         {
@@ -49,8 +52,10 @@
                         if ( completed )
                         {
                             item.Status = EntryStatus.Closed;
+                            ProjectOverview.Source.UpdateData (item);
                         }
 
+                        //  Coloring the status display
                         switch ( item.Status )
                         {
                             case EntryStatus.Open:

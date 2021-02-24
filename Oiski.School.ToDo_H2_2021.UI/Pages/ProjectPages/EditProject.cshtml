@@ -9,8 +9,10 @@
 <div class="row">
     <div class="col-md-6">
         <form method="post" asp-route-id="@Model.Project.ID">
+            @* Validation Display *@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <span class="text-danger" asp-validation-for="Project.Name"></span>
+            @* ID Dislay - Read-only *@
             <div class="row">
                 <div class="col-md-6">
                     <p>ID: </p>
@@ -19,6 +21,7 @@
                     <input readonly="readonly" type="text" asp-for="Project.ID" />
                 </div>
             </div>
+            @* Name Display - Edit *@
             <div class="row">
                 <div class="col-md-6">
                     <p>Name: </p>
@@ -27,6 +30,7 @@
                     <input type="text" asp-for="Project.Name" />
                 </div>
             </div>
+            @* Description Display - Edit *@
             <div class="row">
                 <div class="col-md-6">
                     <p>Description: </p>
@@ -35,6 +39,7 @@
                     <textarea rows="10" cols="50" asp-for="Project.Description"></textarea>
                 </div>
             </div>
+            @* Status Display - Edit *@
             <div class="row">
                 <div class="col-md-6">
                     <p>Status: </p>
@@ -44,6 +49,7 @@
                 </div>
             </div>
 
+            @* Submit Button Display *@
             <div class="row">
                 <div class="col-md-6">
 

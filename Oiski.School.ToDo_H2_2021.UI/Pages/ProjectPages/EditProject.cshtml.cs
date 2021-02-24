@@ -11,9 +11,17 @@ namespace Oiski.School.ToDo_H2_2021.UI.Pages
 {
     public class EditProjectModel : PageModel
     {
+        /// <summary>
+        /// The model containing the values of the <see cref="IMyProject"/> to edit
+        /// </summary>
         [BindProperty]
         public ProjectModel Project { get; private set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id">The ID used to identify the <see cref="IMyProject"/> to edit</param>
+        /// <returns>The result of the Get Request</returns>
         public IActionResult OnGet ( int? id )
         {
             if ( id == null )
@@ -31,6 +39,11 @@ namespace Oiski.School.ToDo_H2_2021.UI.Pages
             return Page ();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="project">The <see cref="ProjectModel"/> that contains the changed values of the <see cref="IMyProject"/> <see langword="object"/> that was edited</param>
+        /// <returns></returns>
         public IActionResult OnPost ( ProjectModel project )
         {
             if ( ModelState.IsValid )

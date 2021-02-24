@@ -8,20 +8,25 @@
 <p class="text-center">Type <u>@Model.Name</u> in the textbox below to verify that you want to delete the project</p>
 
 <form method="post" asp-route-id="@Model.Task.ID">
+    @* ID for the task to be deleted and the ID and name of the project containing the task *@
     <input asp-for="@Model.Task.ID" type="hidden" />
     <input asp-for="Project.ID" type="hidden" />
     <input asp-for="Project.Name" type="hidden" />
+
+    @* Name Validation Displays *@
     <div class="row">
         <div class="col-md-4">
 
         </div>
         <div class="col-md-2">
-            <p>Project Name: </p>
+            <p>Task Name: </p>
         </div>
         <div class="col-md-6">
             <input asp-for="@Model.Task.Name" required type="text" />
         </div>
     </div>
+
+    @* Submit Button Display *@
     <div class="row">
         <div class="col-md-5">
 

@@ -11,10 +11,16 @@ namespace Oiski.School.ToDo_H2_2021.UI.Pages
 {
     public class CreateProjectModel : PageModel
     {
+        /// <summary>
+        /// The model containing the values for the <see cref="IMyProject"/> <see langword="object"/>
+        /// </summary>
         public ProjectModel Project { get; private set; }
-        public void OnGet ()
-        {
-        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="project">The model containing the values used to create a new <see cref="IMyProject"/></param> <see  langword="object"/>
+        /// <returns>The result of the Post Request</returns>
         public IActionResult OnPost ( ProjectModel project )
         {
             if ( ModelState.IsValid )

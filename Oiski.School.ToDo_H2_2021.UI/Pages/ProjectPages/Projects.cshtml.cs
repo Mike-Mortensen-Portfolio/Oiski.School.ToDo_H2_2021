@@ -10,8 +10,11 @@ namespace Oiski.School.ToDo_H2_2021.UI.Pages
 {
     public class ProjectsModel : PageModel
     {
+        /// <summary>
+        /// The collection of <see cref="IMyProject"/> collection to display
+        /// </summary>
         public List<IMyProject> Projects { get; private set; }
-
+        
         public void OnGet ()
         {
             Projects = ProjectOverview.Source.GetEnumerable ().ToList ();

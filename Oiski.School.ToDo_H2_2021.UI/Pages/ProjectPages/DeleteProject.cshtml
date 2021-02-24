@@ -8,11 +8,14 @@
 <p class="text-center">Type <u>@Model.Name</u> in the textbox below to verify that you want to delete the project</p>
 
 <form method="post" asp-route-id="@Model.Project.ID">
+    @* Hold the ID for the project that is aboutto be deleted *@
     <input asp-for="@Model.Project.ID" type="hidden" />
+
     <div class="row">
         <div class="col-md-4">
 
         </div>
+        @* Validation textbox where the user has to type the name of the project *@
         <div class="col-md-2">
             <p>Project Name: </p>
         </div>
@@ -20,6 +23,7 @@
             <input asp-for="@Model.Project.Name" required type="text" />
         </div>
     </div>
+    @* Submit Button Display *@
     <div class="row">
         <div class="col-md-5">
 
