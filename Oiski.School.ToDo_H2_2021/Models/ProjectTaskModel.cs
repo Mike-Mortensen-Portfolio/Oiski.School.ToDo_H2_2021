@@ -13,7 +13,7 @@ namespace Oiski.School.ToDo_H2_2021.Models
         public int ID { get; set; }
         [Required (ErrorMessage = "A task must have a name!")]
         public string Name { get; set; }
-        [MaxLength (200, ErrorMessage = "No more than 200 characters allowed!")]
+        [MaxLength (93, ErrorMessage = "No more than 93 characters allowed!")]
         public string Description { get; set; }
         public EntryStatus Status { get; set; }
     }

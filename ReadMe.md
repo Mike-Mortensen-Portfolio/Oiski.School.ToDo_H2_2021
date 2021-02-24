@@ -17,7 +17,7 @@ Therefore the following diagram was formed according to the specifications and i
 > Build a _Razor Page Application_ that can manage and maintain a 'To Do' list.
 
 **Input**
-> Missing description...s
+> Missing description...
 
 **Output**
 > Missing description...
