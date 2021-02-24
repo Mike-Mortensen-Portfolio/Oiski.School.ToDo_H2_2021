@@ -5,7 +5,7 @@
 }
 
 <h1 class="text-center" style="color:red">You're about to delete: <i>@Model.Name</i></h1>
-<p class="text-center">Type <u>@Model.Name</u> in the textbox below to verify that you want to delete the project</p>
+<p class="text-center">Type <u>@Model.Name</u> in the textbox below to verify that you want to delete the task</p>
 
 <form method="post" asp-route-id="@Model.Task.ID">
     @* ID for the task to be deleted and the ID and name of the project containing the task *@
@@ -32,7 +32,7 @@
 
         </div>
         <div class="col-md-7">
-            <input class="btn-danger btn-lg" type="submit" value="Delete Project" />
+            <input class="btn-danger btn-lg" type="submit" value="Delete Task" />
         </div>
     </div>
 </form>
