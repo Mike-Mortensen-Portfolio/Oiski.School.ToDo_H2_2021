@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Oiski.Common\Oiski.Common.csproj" />
+    <ProjectReference Include="..\Oiski.Common\Oiski.Common.csproj" />
     <ProjectReference Include="..\Oiski.School.ToDo_H2_2021\Oiski.School.ToDo_H2_2021.csproj" />
   </ItemGroup>
 
