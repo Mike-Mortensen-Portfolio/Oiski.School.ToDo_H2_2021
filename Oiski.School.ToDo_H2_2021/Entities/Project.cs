@@ -16,17 +16,17 @@ namespace Oiski.School.ToDo_H2_2021.Entities
     /// </summary>
     internal class Project : ProjectModel, IMyProject
     {
-        internal Project ()
+        internal Project()
         {
             ID = projectCount++;
             Name = string.Empty;
             Description = string.Empty;
             Status = EntryStatus.Open;
 
-            Collection = new List<IMyTask> ();
+            Collection = new List<IMyTask>();
         }
 
-        public Project ( int _id ) : this ()
+        public Project(int _id) : this()
         {
             ID = _id;
         }
@@ -35,11 +35,11 @@ namespace Oiski.School.ToDo_H2_2021.Entities
         /// Initialize a new instance of type <see cref="Project"/> where the name is set
         /// </summary>
         /// <param name="_name"></param>
-        public Project ( string _name ) : this ()
+        public Project(string _name) : this()
         {
             Name = _name;
-            filePath = $"{Path.GetDirectoryName (Assembly.GetExecutingAssembly ().Location)}\\Projects\\{ID}.csv";
-            file = new FileHandler (filePath);
+            filePath = $"{Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)}\\Projects\\{ID}.csv";
+            file = new FileHandler(filePath);
         }
 
         /// <summary>
@@ -94,90 +94,90 @@ namespace Oiski.School.ToDo_H2_2021.Entities
 
         string IMyProject.IDKey { get; } = "ProjectID";
 
-        public void BuildEntity ( string _data )
+        public void BuildEntity(string _data)
         {
-            string[] data = _data.Split ($"{Environment.NewLine}");
+            string[] data = _data.Split($"{Environment.NewLine}");
 
-            string[] projectData = data[ 0 ].Split (",");
+            string[] projectData = data[0].Split(",");
 
-            if ( projectData.Length == 4 && int.TryParse (projectData[ 0 ].Replace (( ( IMyProject ) this ).IDKey, string.Empty), out int _id) && int.TryParse (projectData[ 3 ], out int _status) )
+            if (projectData.Length == 4 && int.TryParse(projectData[0].Replace(((IMyProject)this).IDKey, string.Empty), out int _id) && int.TryParse(projectData[3], out int _status))
             {
                 ID = _id;
-                Name = projectData[ 1 ];
-                Description = projectData[ 2 ];
-                Status = ( EntryStatus ) _status;
+                Name = projectData[1];
+                Description = projectData[2];
+                Status = (EntryStatus)_status;
 
-                filePath = $"{Path.GetDirectoryName (Assembly.GetExecutingAssembly ().Location)}\\Projects\\{ID}.csv";
-                file = new FileHandler (filePath);
+                filePath = $"{Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)}\\Projects\\{ID}.csv";
+                file = new FileHandler(filePath);
 
-                for ( int i = 1; i < data.Length - 1; i++ )
+                for (int i = 1; i < data.Length - 1; i++)
                 {
-                    IMyTask task = ProjectOverview.TaskFactory.CreateDefaultTask ();
-                    if ( !string.IsNullOrEmpty (data[ i ]) )
+                    IMyTask task = ProjectOverview.TaskFactory.CreateDefaultTask();
+                    if (!string.IsNullOrEmpty(data[i]))
                     {
-                        task.BuildEntity (data[ i ]);
-                        Collection.Add (task);
+                        task.BuildEntity(data[i]);
+                        Collection.Add(task);
                     }
                 }
 
                 return;
             }
 
-            throw new InvalidDataException ($"One or more fields couldn't be retrieved from: {_data}");
+            throw new InvalidDataException($"One or more fields couldn't be retrieved from: {_data}");
         }
 
-        public bool DeleteData<IDType> ( IMyRepositoryEntity<IDType, string> _entity )
+        public bool DeleteData<IDType>(IMyRepositoryEntity<IDType, string> _entity)
         {
-            if ( GetDataByIdentifier (_entity.ID) != null )
+            if (GetDataByIdentifier(_entity.ID) != null)
             {
-                file.DeleteLine (file.GetLineNumber (file.FindLine (_entity.ID.ToString ())));
-                Collection.Remove (Collection.Find (item => item.ID == Common.Generics.Converter.CastGeneric<IDType, int> (_entity.ID)));
+                file.DeleteLine(file.GetLineNumber(file.FindLine($"{((IMyTask)_entity).IDKey}{_entity.ID}")));
+                Collection.Remove(Collection.Find(item => item.ID == Common.Generics.Converter.CastGeneric<IDType, int>(_entity.ID)));
                 return true;
             }
 
             return false;
         }
 
-        public IMyTask GetDataByIdentifier<IDType> ( IDType _id )
+        public IMyTask GetDataByIdentifier<IDType>(IDType _id)
         {
-            IMyTask task = ProjectOverview.TaskFactory.CreateDefaultTask ();
-            string data = file.FindLine ($"{task.IDKey}{Common.Generics.Converter.CastGeneric<IDType, int> (_id)}");
+            IMyTask task = ProjectOverview.TaskFactory.CreateDefaultTask();
+            string data = file.FindLine($"{task.IDKey}{Common.Generics.Converter.CastGeneric<IDType, int>(_id)}");
 
-            if ( data != null )
+            if (data != null)
             {
-                task.BuildEntity (data);
+                task.BuildEntity(data);
                 return task;
             }
 
             return null;
         }
 
-        public IEnumerable<IMyTask> GetEnumerable ()
+        public IEnumerable<IMyTask> GetEnumerable()
         {
-            List<IMyTask> tasks = new List<IMyTask> ();
+            List<IMyTask> tasks = new List<IMyTask>();
 
-            string[] lines = file.ReadLines ();
-            for ( int i = 1; i < lines.Length - 1; i++ )
+            string[] lines = file.ReadLines();
+            for (int i = 1; i < lines.Length - 1; i++)
             {
-                if ( !string.IsNullOrEmpty (lines[ i ]) )
+                if (!string.IsNullOrEmpty(lines[i]))
                 {
-                    IMyTask task = ProjectOverview.TaskFactory.CreateDefaultTask ();
-                    task.BuildEntity (lines[ i ]);
+                    IMyTask task = ProjectOverview.TaskFactory.CreateDefaultTask();
+                    task.BuildEntity(lines[i]);
 
-                    tasks.Add (task);
+                    tasks.Add(task);
                 }
             }
 
             return tasks;
         }
 
-        public bool InsertData<IDType> ( IMyRepositoryEntity<IDType, string> _data )
+        public bool InsertData<IDType>(IMyRepositoryEntity<IDType, string> _data)
         {
-            if ( GetDataByIdentifier (_data.ID) == null )
+            if (GetDataByIdentifier(_data.ID) == null)
             {
-                file.WriteLine (_data.SaveEntity (), true);
-                IMyTask task = GetDataByIdentifier (_data.ID);
-                Collection.Add (task);
+                file.WriteLine(_data.SaveEntity(), true);
+                IMyTask task = GetDataByIdentifier(_data.ID);
+                Collection.Add(task);
 
                 return true;
             }
@@ -185,30 +185,30 @@ namespace Oiski.School.ToDo_H2_2021.Entities
             return false;
         }
 
-        public string SaveEntity ()
+        public string SaveEntity()
         {
-            file.InsertLine ($"{( ( IMyProject ) this ).IDKey}{ID},{Name},{Description},{( int ) Status}", 0);
+            file.InsertLine($"{((IMyProject)this).IDKey}{ID},{Name},{Description},{(int)Status}", 0);
 
             int index = 1;
 
-            foreach ( IMyTask task in Entries )
+            foreach (IMyTask task in Entries)
             {
-                file.InsertLine (task.SaveEntity (), index);
+                file.InsertLine(task.SaveEntity(), index);
                 index++;
             }
 
-            return file.ReadAll ();
+            return file.ReadAll();
         }
 
-        public bool UpdateData<IDType> ( IMyRepositoryEntity<IDType, string> _data )
+        public bool UpdateData<IDType>(IMyRepositoryEntity<IDType, string> _data)
         {
-            if ( !string.IsNullOrWhiteSpace (file.FindLine ($"{( ( IMyTask ) _data ).IDKey}{_data.ID}")) )
+            if (!string.IsNullOrWhiteSpace(file.FindLine($"{((IMyTask)_data).IDKey}{_data.ID}")))
             {
-                file.UpdateLine (_data.SaveEntity (), file.GetLineNumber (file.FindLine ($"TaskID{Common.Generics.Converter.CastGeneric<IDType, int> (_data.ID)}")));
+                file.UpdateLine(_data.SaveEntity(), file.GetLineNumber(file.FindLine($"TaskID{Common.Generics.Converter.CastGeneric<IDType, int>(_data.ID)}")));
 
-                IMyTask task = GetDataByIdentifier (_data.ID);
+                IMyTask task = GetDataByIdentifier(_data.ID);
 
-                Collection[ Collection.IndexOf (Collection.Find (item => item.ID == task.ID)) ] = task;
+                Collection[Collection.IndexOf(Collection.Find(item => item.ID == task.ID))] = task;
                 return true;
             }
 

@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Oiski.Common\Oiski.Common.csproj" />
+    <ProjectReference Include="..\Oiski.Common\Oiski.Common.csproj" />
   </ItemGroup>
 
 </Project>
